@@ -25,6 +25,21 @@ func ThreeNumberSum(array []int, target int) [][]int {
 			}
 		}
 	}
+	for i := 0; i < len(sum); i++ {
+		for ii := i + 1; ii < len(sum); ii++ {
+			if sum[i][0] > sum[ii][0] {
+				sum[i], sum[ii] = sum[ii], sum[i]
+			} else if sum[i][0] == sum[ii][0] {
+				if sum[i][1] > sum[ii][0] {
+					sum[i], sum[ii] = sum[ii], sum[i]
+				} else if sum[i][1] == sum[ii][1] {
+					if sum[i][2] > sum[ii][2] {
+						sum[i], sum[ii] = sum[ii], sum[i]
+					}
+				}
+			}
+		}
+	}
 
 	return sum
 }
